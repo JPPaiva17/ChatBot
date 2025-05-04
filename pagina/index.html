@@ -10,17 +10,17 @@
     <div class="background">
 
         <!-- Chatbot -->
-        <div class="chat-container">
+        <div class="chat-container" id="chat-container">
 
             <!-- TopBar com a foto do Pantera -->
             <div class="chat-header">
                 <img src="{{ url_for('static', filename='imagens/pantera.png') }}" alt="Foto do Bot" class="bot-photo">
                 <span class="bot-name">FURIA | Pantera</span>
+                <button id="fechar-chat" class="bot-close">X</button>
             </div>
 
             <!-- Caixa de mensagens -->
-            <div class="chat-box" id="chat-box">
-            </div>
+            <div class="chat-box" id="chat-box"></div>
 
             <!-- Área de entrada de mensagem -->
             <div class="input-container">
@@ -30,7 +30,25 @@
         </div>
     </div>
 
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <!-- Botão flutuante do Pantera -->
+    <div id="bot-icon">
+        <img src="{{ url_for('static', filename='imagens/pantera.png') }}" alt="Pantera" />
+    </div>
+
     <div id="bot-image-url" data-url="{{ url_for('static', filename='imagens/pantera.png') }}" style="display: none;"></div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        // Alternar visibilidade entre o chat e o botão flutuante
+        document.getElementById("fechar-chat").addEventListener("click", function () {
+            document.getElementById("chat-container").style.display = "none";
+            document.getElementById("bot-icon").style.display = "flex";
+        });
+
+        document.getElementById("bot-icon").addEventListener("click", function () {
+            document.getElementById("chat-container").style.display = "flex";
+            document.getElementById("bot-icon").style.display = "none";
+        });
+    </script>
 </body>
 </html>

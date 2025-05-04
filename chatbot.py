@@ -2,7 +2,7 @@ import requests
 
 def proximo_jogo_furia():
     # Resposta padrão com informações do próximo jogo contra The Mongolz
-    data = "Às 14:00 no dia 06/05"  
+    data = "Às 14:00 no dia 10/05"
     campeonato = "IEM Dallas 2025"  
     formato = "MD3" 
     adversarios = "FURIA vs The Mongolz"
