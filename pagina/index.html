@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <!-- Fundo Cinza -->
     <div class="background">
+
         <!-- Chatbot -->
         <div class="chat-container">
-            <!-- Barra de topo com foto e nome do bot -->
+
+            <!-- TopBar com a foto do Pantera -->
             <div class="chat-header">
                 <img src="{{ url_for('static', filename='imagens/pantera.png') }}" alt="Foto do Bot" class="bot-photo">
                 <span class="bot-name">FURIA | Pantera</span>
@@ -19,7 +20,6 @@
 
             <!-- Caixa de mensagens -->
             <div class="chat-box" id="chat-box">
-                <!-- Mensagens serão exibidas aqui -->
             </div>
 
             <!-- Área de entrada de mensagem -->
@@ -31,5 +31,6 @@
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <div id="bot-image-url" data-url="{{ url_for('static', filename='imagens/pantera.png') }}" style="display: none;"></div>
 </body>
 </html>

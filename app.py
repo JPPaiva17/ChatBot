@@ -13,7 +13,7 @@ def index():
 @app.route('/mensagem', methods=['POST'])
 def mensagem():
     mensagem_usuario = request.form['mensagem']
-    resposta_chatbot = responder(mensagem_usuario)  # Chama a função que você criou no chatbot.py
+    resposta_chatbot = responder(mensagem_usuario) 
     return jsonify({'resposta': resposta_chatbot})
 
 if __name__ == '__main__':
