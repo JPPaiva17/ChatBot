@@ -1,0 +1,92 @@
+/* Estilo global */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #5b5959;  /* Fundo cinza escuro */
+    font-family: Arial, sans-serif;
+}
+
+/* Container de fundo */
+.background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Container principal do chatbot */
+.chat-container {
+    background-color: #f0f0f0;  /* Fundo cinza claro */
+    width: 400px;
+    height: 500px;
+    border-radius: 12px;  /* Cantos arredondados */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8);  /* Sombra suave */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Barra de topo com foto e nome */
+.chat-header {
+    background-color: #000;  /* Barra preta */
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-top-left-radius: 12px;  /* Arredondar o canto superior esquerdo */
+    border-top-right-radius: 12px;  /* Arredondar o canto superior direito */
+}
+
+.bot-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.bot-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Caixa de mensagens */
+.chat-box {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Área de entrada de mensagem */
+.input-container {
+    display: flex;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    border-bottom-left-radius: 12px;  /* Arredondar o canto inferior esquerdo */
+    border-bottom-right-radius: 12px;  /* Arredondar o canto inferior direito */
+}
+
+.input-container input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.input-container button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.input-container button:hover {
+    background-color: #0056b3;
+}

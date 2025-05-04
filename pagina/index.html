@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot FURIA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Fundo Cinza -->
+    <div class="background">
+        <!-- Chatbot -->
+        <div class="chat-container">
+            <!-- Barra de topo com foto e nome do bot -->
+            <div class="chat-header">
+                <img src="{{ url_for('static', filename='imagens/pantera.png') }}" alt="Foto do Bot" class="bot-photo">
+                <span class="bot-name">FURIA | Pantera</span>
+            </div>
+
+            <!-- Caixa de mensagens -->
+            <div class="chat-box" id="chat-box">
+                <!-- Mensagens serão exibidas aqui -->
+            </div>
+
+            <!-- Área de entrada de mensagem -->
+            <div class="input-container">
+                <input type="text" id="input-message" placeholder="Digite sua mensagem...">
+                <button onclick="enviarMensagem()">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
