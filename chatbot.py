@@ -1,120 +1,123 @@
-import requests
+import unicodedata
+import re
+
+def normalizar_texto(texto):
+    texto = texto.lower()
+    texto = unicodedata.normalize('NFD', texto).encode('ascii', 'ignore').decode('utf-8')
+
+    # Substituições apenas para tokens relevantes ao chatbot
+    substituicoes = {
+        "pq": "porque",
+        "por que": "porque",
+        "cm": "como",
+        "qm":"quem",
+        "qnd": "quando",
+        "qdo": "quando",
+        "prox jogo": "proximojogo",
+        "proximo jogo": "proximojogo",
+        "line": "lineup",
+        "função": "funcao",
+    }
+
+    for de, para in substituicoes.items():
+        texto = re.sub(rf'\b{de}\b', para, texto)
+
+    texto = re.sub(r'[^\w\s]', '', texto)
+    return texto.strip()
 
 def proximo_jogo_furia():
-    # Resposta padrão com informações do próximo jogo contra The Mongolz
-    data = "Às 14:00 no dia 10/05"
-    campeonato = "IEM Dallas 2025"  
-    formato = "MD3" 
-    adversarios = "FURIA vs The Mongolz"
-    
-    # Adicionando emojis
-    return f"🎮 Próximo jogo da FURIA:\n🕒 {data}\n🆚{adversarios}\n🏆 {campeonato}\n🔥{formato}"
-
+    data = "🗓 10/05/2025 às 14:00"
+    campeonato = "🏆 IEM Dallas 2025"
+    formato = "🎯 MD3"
+    adversario = "⚔ FURIA vs The MongolZ"
+    return f"📣 Próximo jogo da FURIA!\n{data}\n{adversario}\n{campeonato}\nFormato: {formato}\n🔥 Vamos pra cima!"
 
 def responder(mensagem):
-    mensagem = mensagem.lower()
+    msg = normalizar_texto(mensagem)
 
-    # Resposta padrão para perguntas não reconhecidas
     def resposta_padrao():
-        return "Desculpe, não entendi sua pergunta. Tente perguntar sobre os jogadores ou a história da FURIA!"
+        return "🤔 Não entendi muito bem... Pergunte sobre os jogadores, a história ou o próximo jogo da FURIA! 🎮"
 
-    # Perguntas do Tipo QUEM
-    if "quem" in mensagem:
-        if any(x in mensagem for x in ["fallen", "gabriel", "toledo"]):
-            return "FalleN, nome verdadeiro Gabriel Toledo, é um dos maiores ícones do CS brasileiro. Bicampeão mundial com a SK Gaming, atualmente é o capitão da FURIA, conhecido por sua liderança, AWP precisa e papel fundamental no crescimento do CS no Brasil."
-        
-        if any(x in mensagem for x in ["kscerato", "kaike", "cerato"]):
-            return "KSCERATO, nome verdadeiro Kaike Cerato, é um dos riflers mais consistentes do mundo e está na FURIA desde 2018. Ele é um jogador crucial para a equipe, com sua habilidade precisa e leitura de jogo."
-        
-        if any(x in mensagem for x in ["yuurih", "yuri", "santos"]):
-            return "Yuurih, nome verdadeiro Yuri Santos, é conhecido por sua agressividade controlada e está na FURIA desde 2018. Ele é uma peça-chave no time, sempre trazendo grande impacto nas partidas."
-        
-        if any(x in mensagem for x in ["molodoy", "danil", "golubenko"]):
-            return ("Molodoy, nome verdadeiro Danil Golubenko, é um jovem awper cazaque que se juntou à FURIA em 2025. "
-                    "Ele é conhecido por sua habilidade com a AWP e por trazer uma nova energia ao time. "
-                    "Antes de ingressar na FURIA, Molodoy era membro da Amkal, uma equipe cazaque de destaque.")
-        
-        if any(x in mensagem for x in ["yekindar", "mareks", "galinskis"]):
-            return ("YEKINDAR, nome verdadeiro Mareks Gaļinskis, é um jogador letão conhecido por sua agressividade e estilo explosivo. "
-                    "Ele se destacou na Virtus.pro e Team Liquid antes de se juntar à FURIA em 2025. "
-                    "Ele foi eleito o 8º melhor jogador do mundo em 2021 e é reconhecido por sua habilidade de entrada e clutchs decisivos.")
-        
-        if "fundou" in mensagem:
-            return "A FURIA foi fundada por Jaime 'raizen' Pádua e André Akkari em 2017."
-        
-        if any(x in mensagem for x in ["coach", "sidde", "sid"]):
-            return ("Sid 'sidde' Macedo é o atual treinador principal da FURIA no Counter-Strike 2. "
-                    "Ele assumiu o cargo em julho de 2024, após a saída de Nicholas 'guerri' Nogueira. "
-                    "Sidde é conhecido por suas estratégias inovadoras e liderança jovem.")
+    # QUEM
+    if "quem" in msg:
+        if any(x in msg for x in ["fallen", "gabriel", "toledo"]):
+            return ("🎯 FalleN (Gabriel Toledo) é uma lenda do CS brasileiro! 🇧🇷\n"
+                    "Bicampeão mundial, atualmente lidera a FURIA como IGL. 🧠🔫")
+        if any(x in msg for x in ["kscerato", "kaike", "cerato"]):
+            return ("🔥 KSCERATO (Kaike Cerato) é o rifler consistente da FURIA desde 2018! 💥\n"
+                    "Conhecido por sua mira precisa e leitura de jogo. 🧠💣")
+        if any(x in msg for x in ["yuurih", "yuri", "santos"]):
+            return ("⚡ Yuurih (Yuri Santos) é conhecido por sua agressividade controlada! 🚀\n"
+                    "Desde 2018 na FURIA, é uma peça-chave com impacto gigante! 🐾")
+        if any(x in msg for x in ["molodoy", "danil", "golubenko"]):
+            return ("🧊 Molodoy (Danil Golubenko) é o novo AWP da FURIA! 🇰🇿\n"
+                    "Chegou em abril de 2025 trazendo mira afiada e sangue novo pro time! 💥🔭")
+        if any(x in msg for x in ["yekindar", "mareks", "galinskis"]):
+            return ("🔥 YEKINDAR (Mareks Gaļinskis) é o stand-in da FURIA desde abril de 2025! ⚔\n"
+                    "Conhecido por seu estilo agressivo e entradas impactantes. 💣")
+        if "fundou" in msg or "criador" in msg:
+            return "📜 A FURIA foi fundada por Jaime 'raizen' Pádua e André Akkari em 2017. 🐾"
+        if any(x in msg for x in ["coach", "treinador", "sidde", "sid"]):
+            return ("🧠 Sidnei 'sidde' Macedo é o atual treinador principal da FURIA no CS2!\n"
+                    "Assumiu o cargo em julho de 2024, trazendo estratégias inovadoras para o time. 🎯")
 
-    # Perguntas do tipo QUANDO
-    if "quando" in mensagem:
-        if "criada" in mensagem:
-            return "A FURIA foi criada em 2017."
-        
-        if "fallen" in mensagem and "entrou" in mensagem:
-            return "FalleN entrou na FURIA em julho de 2023."
-        
-        if "próximo jogo" in mensagem:
+    # QUANDO
+    if "quando" in msg:
+        if "criada" in msg or "fundada" in msg:
+            return "📆 A FURIA foi criada em 2017."
+        if "fallen" in msg and "entrou" in msg:
+            return "📥 FalleN entrou na FURIA em julho de 2023. 🔥"
+        if "yekindar" in msg and "entrou" in msg:
+            return "📥 YEKINDAR chegou à FURIA em abril de 2025 como stand-in."
+        if "molodoy" in msg and "entrou" in msg:
+            return "📥 Molodoy se juntou à FURIA em abril de 2025."
+        if "proximojogo" in msg:
             return proximo_jogo_furia()
 
-        
-        if "major" in mensagem:
-            return "A FURIA jogou seu primeiro Major no IEM Katowice 2019."
-        
-        if "yekindar" in mensagem and "entrou" in mensagem:
-            return "Yekindar entrou na FURIA em fevereiro de 2025."
+    # PORQUE
+    if "porque" in msg:
+        if "fallen" in msg and "furia" in msg:
+            return "🧠 FalleN entrou na FURIA para trazer experiência, tática e liderança ao time! 🇧🇷"
+        if "yekindar" in msg:
+            return "⚔ YEKINDAR se juntou à FURIA como stand-in para fortalecer a equipe em 2025."
+        if "molodoy" in msg:
+            return "🔫 Molodoy foi contratado para reforçar a AWP da FURIA com sua mira precisa."
+        if "mudou" in msg and "lineup" in msg:
+            return "🔄 A FURIA mudou sua lineup em 2025 buscando renovar e melhorar resultados internacionais."
+        if "furia" in msg and "agressiva" in msg:
+            return "🔥 A agressividade é marca registrada da FURIA, sufocando os adversários desde o início!"
 
-    # Perguntas do tipo PORQUE
-    if "por que" in mensagem:
-        if "fallen" in mensagem and "furia" in mensagem:
-            return "FalleN entrou na FURIA em 2023 para trazer experiência, liderança e tática ao time."
-        
-        if "yekindar" in mensagem:
-            return "Yekindar saiu da Liquid buscando um novo desafio e alinhamento com seu estilo de jogo."
-        
-        if "mudou" in mensagem and "line" in mensagem:
-            return "A FURIA mudou sua line para renovar o elenco e buscar melhores resultados internacionais."
-        
-        if "furia" in mensagem and "agressiva" in mensagem:
-            return "A agressividade é marca registrada da FURIA desde o início, sufocando os adversários."
-
-    # Perguntas do tipo QUAL
-    if "qual" in mensagem:
-        if "line" in mensagem:
-            return "Line-up 2025: FalleN, Yuurih, KSCERATO, Yekindar e Molodoy."
-        
-        if "função" in mensagem and "fallen" in mensagem:
-            return "FalleN é IGL e suporte da FURIA."
-        
-        if "estilo" in mensagem and "yekindar" in mensagem:
-            return "Yekindar é um entry fragger agressivo, famoso por abrir espaços com confiança."
-        
-        if "ranking" in mensagem:
-            return "A FURIA está atualmente no top 15 do ranking HLTV (dados de 2025)."
-        
-        if "origem" in mensagem:
-            return "O nome FURIA representa intensidade e garra, pilares da mentalidade competitiva do time."
-        
-        if "próximo jogo" in mensagem:
+    # QUAL
+    if "qual" in msg:
+        if "lineup" in msg:
+            return ("🧑‍💻 Line-up 2025:\n"
+                    "- FalleN (IGL)\n"
+                    "- KSCERATO (Rifler)\n"
+                    "- yuurih (Rifler)\n"
+                    "- molodoy (AWP)\n"
+                    "- YEKINDAR (Rifler)")
+        if "funcao" in msg and "fallen" in msg:
+            return "🎯 FalleN é o IGL (líder de jogo) da FURIA."
+        if "estilo" in msg and "yekindar" in msg:
+            return "💣 YEKINDAR é conhecido por seu estilo agressivo e entradas impactantes!"
+        if "ranking" in msg:
+            return "📊 A FURIA está atualmente no Top 20 do ranking da HLTV (dados de 2025)."
+        if "origem" in msg or "nome" in msg:
+            return "🐾 O nome FURIA representa intensidade e garra — pilares da filosofia competitiva do time!"
+        if "proximojogo" in msg:
             return proximo_jogo_furia()
 
-    # perguntas do tipo COMO
-    if "como" in mensagem:
-        if "começou" in mensagem and "furia" in mensagem:
-            return "A FURIA nasceu em 2017 com a missão de revolucionar os esports no Brasil."
-        
-        if "jogar" in mensagem and "furia" in mensagem:
-            return "Para jogar na FURIA, você precisa se destacar no cenário competitivo e ter mentalidade alinhada ao time."
-        
-        if "estreia" in mensagem:
-            return "A estreia da FURIA em grandes torneios internacionais foi em 2019, no Major de Katowice."
-        
-        if "treina" in mensagem:
-            return "A FURIA treina com uma rotina intensa de táticos, deathmatch e análise de partidas."
-        
-        if "estilo" in mensagem:
-            return "A FURIA é conhecida por seu estilo agressivo e jogadas explosivas lideradas por arT."
+    # COMO
+    if "como" in msg:
+        if "comecou" in msg and "furia" in msg:
+            return "🚀 A FURIA começou sua jornada em 2017 com o objetivo de revolucionar os esports no Brasil."
+        if "jogar" in msg and "furia" in msg:
+            return "🎮 Para jogar na FURIA, é preciso se destacar no cenário competitivo e ter disciplina e mentalidade forte!"
+        if "estreia" in msg:
+            return "🌍 A estreia internacional da FURIA foi no Major de Katowice 2019."
+        if "treina" in msg:
+            return "🧠 A FURIA treina todos os dias com táticos, deathmatch, scrims e análise de demos!"
+        if "estilo" in msg:
+            return "🔥 O estilo da FURIA é agressivo e direto, sufocando os adversários com pressão constante!"
 
-    # Resposta padrão para perguntas não reconhecidas
     return resposta_padrao()

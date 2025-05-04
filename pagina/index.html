@@ -35,20 +35,10 @@
         <img src="{{ url_for('static', filename='imagens/pantera.png') }}" alt="Pantera" />
     </div>
 
+    <div id="bot-tooltip">Como posso te ajudar?</div>
+
     <div id="bot-image-url" data-url="{{ url_for('static', filename='imagens/pantera.png') }}" style="display: none;"></div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
-    <script>
-        // Alternar visibilidade entre o chat e o botão flutuante
-        document.getElementById("fechar-chat").addEventListener("click", function () {
-            document.getElementById("chat-container").style.display = "none";
-            document.getElementById("bot-icon").style.display = "flex";
-        });
-
-        document.getElementById("bot-icon").addEventListener("click", function () {
-            document.getElementById("chat-container").style.display = "flex";
-            document.getElementById("bot-icon").style.display = "none";
-        });
-    </script>
 </body>
 </html>

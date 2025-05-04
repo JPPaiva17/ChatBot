@@ -77,3 +77,15 @@ window.onload = function() {
         }
     });
 };
+
+// Alternar visibilidade entre o chat e o botão flutuante
+document.getElementById("fechar-chat").addEventListener("click", function () {
+    document.getElementById("chat-container").style.display = "none";
+    document.getElementById("bot-icon").style.display = "flex";
+});
+
+document.getElementById("bot-icon").addEventListener("click", function () {
+    document.getElementById("chat-container").style.display = "flex";
+    document.getElementById("bot-icon").style.display = "none";
+});
+
