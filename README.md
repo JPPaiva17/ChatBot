@@ -78,13 +78,24 @@ Este é um chatbot interativo sobre a equipe de CS2 da FURIA, com respostas dive
 
 ## 🖼️ Fotos do ChatBot
 
-Abaixo está a imagem utilizada como avatar do Pantera, o bot oficial da FURIA:
-![pantera](https://github.com/user-attachments/assets/d6e8e019-ece9-4058-a607-d7ade830efcb)
+<p align="left">
+  Abaixo está a imagem utilizada como avatar do Pantera, o bot oficial da FURIA:
+</p>
 
-Aqui está algumas fotos da interface de funcionamento
-![Imagem do WhatsApp de 2025-05-04 à(s) 20 49 37_edbda7f3](https://github.com/user-attachments/assets/b3d06aa2-665b-484e-93f0-4e5c7b98145a)
-![Imagem do WhatsApp de 2025-05-04 à(s) 20 51 00_1d4415c7](https://github.com/user-attachments/assets/ac952458-0837-4eb3-8ae8-337853211595)
-![Imagem do WhatsApp de 2025-05-04 à(s) 20 50 01_9c03a309](https://github.com/user-attachments/assets/85665065-4a68-4cca-9242-b72aea5450df)
+<img src="https://github.com/user-attachments/assets/d6e8e019-ece9-4058-a607-d7ade830efcb" alt="Pantera" width="250"/>
+
+<br><br>
+
+<p align="left">
+  Aqui estão algumas fotos da interface de funcionamento:
+</p>
+
+<img src="https://github.com/user-attachments/assets/b3d06aa2-665b-484e-93f0-4e5c7b98145a" alt="Interface 1" width="500"/>
+<br><br>
+<img src="https://github.com/user-attachments/assets/ac952458-0837-4eb3-8ae8-337853211595" alt="Interface 2" width="500"/>
+<br><br>
+<img src="https://github.com/user-attachments/assets/85665065-4a68-4cca-9242-b72aea5450df" alt="Interface 3" width="500"/>
+
 
 ## 📄 Licença
 
