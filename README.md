@@ -67,19 +67,12 @@ Este é um chatbot interativo sobre a equipe de CS2 da FURIA, com respostas dive
 
 ## 📦 Futuras melhorias
 
-- Conectar com API da HLTV ou Liquipedia para dados ao vivo
-- Adicionar histórico de mensagens
+- Conectar com alguma API de partidas
 - Versão mobile responsiva
 - Respostas com voz (text-to-speech)
 
 ---
 
-## 🤝 Contribuindo
-
-Sinta-se livre para enviar pull requests ou sugestões! Este projeto é uma forma divertida de aprender Flask e frontend com um tema que a gente ama: CS! 🔫
-
----
-
 ## 📄 Licença
 
-MIT License © 2025 Laura Braga de Menezes
+MIT License © 2025 João Pedro Paiva
