@@ -5,8 +5,7 @@ Este é um chatbot interativo sobre a equipe de CS2 da FURIA, com respostas dive
 ## 🔧 Tecnologias utilizadas
 
 - **Python (Flask)** – para a lógica de backend  
-- **HTML/CSS/JavaScript** – para a interface web  
-- **Emojis** – para respostas mais expressivas e amigáveis 😄
+- **HTML/CSS/JavaScript** – para a interface web 
 
 ---
 
