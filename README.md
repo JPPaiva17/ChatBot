@@ -24,7 +24,7 @@ Este é um chatbot interativo sobre a equipe de CS2 da FURIA, com respostas dive
 ## 🗂 Estrutura de pastas
 
 ```
-📁 projeto/
+📁 ChatBotFuria/
 ├── app.py                # Backend Flask
 ├── chatbot.py            # Lógica e respostas do bot
 ├── pagina/
