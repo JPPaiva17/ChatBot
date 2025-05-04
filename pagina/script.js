@@ -15,7 +15,9 @@ function exibirMensagem(mensagem, autor) {
 
         const mensagemTextElement = document.createElement("div");
         mensagemTextElement.classList.add("mensagem");
-        mensagemTextElement.innerText = mensagem;
+
+        // 🔧 Aqui está a mudança: renderiza HTML
+        mensagemTextElement.innerHTML = mensagem;
 
         botElement.appendChild(imgElement);
         botElement.appendChild(mensagemTextElement);
@@ -88,4 +90,3 @@ document.getElementById("bot-icon").addEventListener("click", function () {
     document.getElementById("chat-container").style.display = "flex";
     document.getElementById("bot-icon").style.display = "none";
 });
-
