@@ -1,4 +1,15 @@
-# Decidi criar o chatbot do zero sem auxilio de inteligencia artificial
+import requests
+
+def proximo_jogo_furia():
+    # Resposta padrão com informações do próximo jogo contra The Mongolz
+    data = "Às 14:00 no dia 06/05"  
+    campeonato = "IEM Dallas 2025"  
+    formato = "MD3" 
+    adversarios = "FURIA vs The Mongolz"
+    
+    # Adicionando emojis
+    return f"🎮 Próximo jogo da FURIA:\n🕒 {data}\n🆚{adversarios}\n🏆 {campeonato}\n🔥{formato}"
+
 
 def responder(mensagem):
     mensagem = mensagem.lower()
@@ -45,7 +56,8 @@ def responder(mensagem):
             return "FalleN entrou na FURIA em julho de 2023."
         
         if "próximo jogo" in mensagem:
-            return "O próximo jogo da FURIA é amanhã às 18h contra a NAVI."
+            return proximo_jogo_furia()
+
         
         if "major" in mensagem:
             return "A FURIA jogou seu primeiro Major no IEM Katowice 2019."
@@ -83,6 +95,9 @@ def responder(mensagem):
         
         if "origem" in mensagem:
             return "O nome FURIA representa intensidade e garra, pilares da mentalidade competitiva do time."
+        
+        if "próximo jogo" in mensagem:
+            return proximo_jogo_furia()
 
     # perguntas do tipo COMO
     if "como" in mensagem:
