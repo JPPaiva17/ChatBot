@@ -39,11 +39,12 @@ function exibirMensagem(mensagem, autor) {
 
 // Função para enviar mensagem do usuário
 function enviarMensagem() {
-    const inputMessage = document.getElementById("input-message").value;
+    const inputField = document.getElementById("input-message");
+    const inputMessage = inputField.value;
     if (inputMessage.trim() === "") return;
 
     exibirMensagem(inputMessage, "user");
-    document.getElementById("input-message").value = "";
+    inputField.value = "";
 
     fetch('/mensagem', {
         method: 'POST',
@@ -64,7 +65,15 @@ function mensagemInicial() {
     exibirMensagem(mensagem, "bot");
 }
 
-// Mostrar a mensagem inicial
+// Mostrar a mensagem inicial + adicionar listener do ENTER
 window.onload = function() {
     mensagemInicial();
+
+    const inputField = document.getElementById("input-message");
+    inputField.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            enviarMensagem();
+        }
+    });
 };
