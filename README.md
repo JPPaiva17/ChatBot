@@ -18,6 +18,10 @@ Este é um chatbot interativo sobre a equipe de CS2 da FURIA, com respostas dive
   - "cm a FURIA foi fundada?"
 - Trata variações e abreviações comuns: `pq`, `cm`, `qnd`, `prox jogo`, etc.
 - Exibe tooltip “Como posso te ajudar?” ao passar o mouse sobre o ícone do bot 🧞‍♂️
+- Obtém:
+  - ✅ **Próximo jogo da FURIA** diretamente da [HLTV.org](https://www.hltv.org/) com `BeautifulSoup`
+  - ✅ **Últimos 5 resultados da FURIA**, também via scraping
+  - ✅ **Status ao vivo** de partidas da FURIA em andamento
 
 ---
 
@@ -66,11 +70,32 @@ Este é um chatbot interativo sobre a equipe de CS2 da FURIA, com respostas dive
 
 ## 📦 Futuras melhorias
 
-- Conectar com alguma API de partidas
 - Versão mobile responsiva
 - Respostas com voz (text-to-speech)
 
 ---
+
+
+## 🖼️ Fotos do ChatBot
+
+<p align="left">
+  Abaixo está a imagem utilizada como avatar do Pantera, o bot oficial da FURIA:
+</p>
+
+<img src="https://github.com/user-attachments/assets/d6e8e019-ece9-4058-a607-d7ade830efcb" alt="Pantera" width="250"/>
+
+<br><br>
+
+<p align="left">
+  Aqui estão algumas fotos da interface de funcionamento:
+</p>
+
+<img src="https://github.com/user-attachments/assets/b3d06aa2-665b-484e-93f0-4e5c7b98145a" alt="Interface 1" width="500"/>
+<br><br>
+<img src="https://github.com/user-attachments/assets/ac952458-0837-4eb3-8ae8-337853211595" alt="Interface 2" width="500"/>
+<br><br>
+<img src="https://github.com/user-attachments/assets/85665065-4a68-4cca-9242-b72aea5450df" alt="Interface 3" width="500"/>
+
 
 ## 📄 Licença
 
