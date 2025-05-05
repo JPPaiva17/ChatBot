@@ -234,7 +234,6 @@ PERGUNTAS_SUGERIDAS = [
     "Onde assistir aos jogos da FURIA?",
     "Quem é o capitão do time?",
     "Quantos títulos a FURIA tem?",
-    "Qual é o ranking atual da FURIA na HLTV?",
     "Quando o FalleN entrou na FURIA?",
     "Quem é o jogador mais experiente da equipe?",
     "Como posso jogar na FURIA?",
@@ -283,6 +282,7 @@ def responder(mensagem):
         if any(x in msg for x in ["coach", "treinador", "sidde", "sid"]):
             return ("🧠 Sidnei 'sidde' Macedo é o atual treinador principal da FURIA no CS2!\n"
                     "Assumiu o cargo em julho de 2024, trazendo estratégias inovadoras para o time. 🎯")
+
     # Respostas para o tokens Quais
     if "Quais" in msg or "Quanto":
         if "resultado" in msg or "jogos" in msg:
@@ -328,7 +328,7 @@ def responder(mensagem):
         if "estilo" in msg and "yekindar" in msg:
             return "💣 YEKINDAR é conhecido por seu estilo agressivo e entradas impactantes!"
         if "ranking" in msg:
-            return "📊 A FURIA está atualmente no Top 20 do ranking da HLTV (dados de 2025)."
+            return "📊 A FURIA está atualmente no Top 17 do ranking da HLTV (dados de 2025)."
         if "origem" in msg or "nome" in msg:
             return "🐾 O nome FURIA representa intensidade e garra — pilares da filosofia competitiva do time!"
         if "proximojogo" in msg:
@@ -365,10 +365,9 @@ def responder(mensagem):
     if any(x in msg for x in ["jogo ao vivo", "partida ao vivo", "furia jogando agora", "status ao vivo", "está jogando", "jogando agora"]):
         return status_ao_vivo_furia()
     
-    # Perguntas sobre funções
 
     # Respostas por função dentro do time
-    if "igl" in msg:
+    if any(x in msg for x in ["IGL", "igl", "Capitão"]):
         return "🎯 FalleN é o IGL (líder de jogo) da FURIA. 🧠"
     if any(x in msg for x in ["awp", "awper", "sniper"]):
         return "🧊 Molodoy é o AWP principal da FURIA. Mira fria e muito clutch! 🔭"
