@@ -386,6 +386,33 @@ def responder(mensagem):
     if "coach" in msg or "treinador" in msg:
         return "🧠 Sidnei 'sidde' Macedo é o atual treinador da FURIA no CS2."
 
+    # Respostas sobre redes sociais
+    if any(x in msg for x in ["instagram", "insta"]):
+        return "📸 Instagram oficial da FURIA: <a href='https://www.instagram.com/furiagg/' target='_blank'>@furiagg</a>"
+
+    if any(x in msg for x in ["twitter", "x", "tweet"]):
+        return "🐦 Perfil oficial da FURIA no X (antigo Twitter): <a href='https://twitter.com/furia' target='_blank'>@furia</a>"
+
+    if "tiktok" in msg:
+        return "🎵 TikTok da FURIA: <a href='https://www.tiktok.com/@furiagg' target='_blank'>@furiagg</a>"
+
+    if any(x in msg for x in ["youtube", "yt"]):
+        return "📺 Canal no YouTube da FURIA: <a href='https://www.youtube.com/@FURIAggCS' target='_blank'>youtube.com/furiagg</a>"
+
+    if "twitch" in msg:
+        return "🎮 Transmissões ao vivo na Twitch: <a href='https://www.twitch.tv/furiatv' target='_blank'>twitch.tv/furiatv</a>"
+
+
+    # Resposta para "quais redes sociais"
+    if any(x in msg for x in ["redes sociais", "contatos oficiais", "quais redes", "instagram", "twitter", "x", "tiktok", "youtube", "twitch"]):
+        return (
+                "🌐 Aqui estão as redes sociais oficiais da FURIA:<br><br>"
+                "📸 <a href='https://www.instagram.com/furiagg/' target='_blank'>Instagram</a><br>"
+                "🐦 <a href='https://twitter.com/furia' target='_blank'>X / Twitter</a><br>"
+                "🎵 <a href='https://www.tiktok.com/@furiagg' target='_blank'>TikTok</a><br>"
+                "📺 <a href='https://www.youtube.com/@FURIAggCS' target='_blank'>YouTube</a><br>"
+                "🎮 <a href='https://www.twitch.tv/furiatv' target='_blank'>Twitch</a><br>"
+                )
 
     # Resposta padrão caso a mensagem não seja identificada
     return resposta_padrao()
