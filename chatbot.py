@@ -414,6 +414,14 @@ def responder(mensagem):
                 "📺 <a href='https://www.youtube.com/@FURIAggCS' target='_blank'>YouTube</a><br>"
                 "🎮 <a href='https://www.twitch.tv/furiatv' target='_blank'>Twitch</a><br>"
                 )
+    if "historia" in msg:
+        return (
+                "🐾 A FURIA Esports é uma organização brasileira de esportes eletrônicos fundada em 2017, "
+                "conhecida principalmente pela sua equipe de CS:GO, que ganhou destaque internacional pelo seu estilo de jogo agressivo e disciplinado. "
+                "Desde 2019, a FURIA compete nos maiores campeonatos do mundo, enfrentando as melhores equipes e representando o Brasil com orgulho. 🇧🇷\n\n"
+                "Além do CS, a FURIA também investe em outros jogos como League of Legends, Valorant e xadrez. "
+                "A organização é reconhecida por sua identidade forte, visão a longo prazo e por incentivar uma cultura de excelência e performance. 🖤"
+                )
 
     # Resposta padrão caso a mensagem não seja identificada
     return resposta_padrao()
