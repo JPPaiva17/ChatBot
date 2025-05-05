@@ -362,6 +362,8 @@ def responder(mensagem):
             "⚠ Disponível apenas para alguns torcedores em beta fechado.")
     
     # Resposta para status ao vivo
+    if "Quanto"  in msg and "jogo" in msg:
+        return status_ao_vivo_furia()
     if any(x in msg for x in ["jogo ao vivo", "partida ao vivo", "furia jogando agora", "status ao vivo", "está jogando", "jogando agora"]):
         return status_ao_vivo_furia()
     
